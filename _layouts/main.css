@@ -1,0 +1,98 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 1px;
+    background-color: white;
+}
+.results_container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 1px;
+
+}
+
+.results_container_wrapper{
+    width: 100%;
+    /* use light grey background */
+    background-color: #f8f9fa;
+}
+
+
+.title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.title h1 {
+    font-size: 2.5em;
+}
+.title p {
+    color: #888;
+    font-size: 1.2em;
+}
+.authors, .institution {
+    text-align: center;
+    margin: 10px 0;
+}
+.button-group {
+    text-align: center;
+    margin: 20px 0;
+}
+.button-group a {
+    text-decoration: none;
+    color: white;
+    background-color: #007bff;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+.button-group a:hover {
+    background-color: #0056b3;
+}
+.videos {
+    display: flex;
+    margin: 20px;
+    justify-content: center;
+}
+.videos video {
+    width: 240px;
+    height: auto;
+    margin-right: 5px;
+}
+.video-caption {
+    text-align: center;
+    font-size: 0.9em;
+    color: #555;
+}
+/* abstract */
+.abstract {
+    margin-top: 30px;
+}
+.abstract h2 {
+    font-size: 1.8em;
+}
+.abstract p {
+    font-size: 1em;
+    line-height: 1.6;
+    color: #333;
+}
+/* results */
+.results {
+    margin-top: 30px;
+}
+.results h2 {
+    font-size: 1.8em;
+}
+.results p {
+    font-size: 1em;
+    line-height: 1.6;
+    color: #333;
+}
+
+
