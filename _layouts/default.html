@@ -108,8 +108,14 @@
 <body>
     <div class="container">
         <div class="title">
-            <h1>Warped Diffusion: Solving Temporally Correlated Inverse Problems with Image Diffusion Models</h1>
-            <p>Anonymous Authors</p>
+            <h1>Warped Diffusion:</h1>
+            <h1>Solving Video Inverse Problems with Image Diffusion Models</h1>
+            <p>Giannis Daras, Weili Nie, Karsten Kreis, Alexandros G. Dimakis,</p>
+            <p>Morteza Mardani, Nikola B. Kovachki, Arash Vahdat</p>
+            <p><strong>Accepted to NeurIPS 2024</strong></p>
+        </div>
+        <div class="button-group">
+            <a href="https://arxiv.org" class="button grey-button" target="_blank"> 📝 Paper Link</a>
         </div>
         <div class="videos">
           <div>
@@ -145,7 +151,7 @@
         <div class="abstract">
             <h2>Abstract</h2>
             <p>
-              Using image models naively for solving inverse video problems often suffers from flickering, texture-sticking, and temporal inconsistency in generated videos. To tackle these problems, in this paper, we view frames as continuous functions in the 2D space and videos as a sequence of continuous transformations, i.e., warpings, between different frames. Given this perspective, we propose to train function space diffusion models for solving inverse problems only in \textit{images}. We then show that to apply these models to videos, the model should be equivariant with respect to the transformation observed in input videos. To ensure equivariance, we introduce two simple approaches including post-hoc test-time consistency guidance and training-time consistency augmentation. Our method allows us to use state-of-the-art latent diffusion models such as Stable Diffusion XL to solve video inverse problems. We demonstrate the effectiveness of our method for video inpainting and $8\times$ video super-resolution, outperforming state-of-the-art techniques based on noise transformation.
+              Using image models naively for solving inverse video problems often suffers from flickering, texture-sticking, and temporal inconsistency in generated videos. To tackle these problems, in this paper, we view frames as continuous functions in the 2D space, and videos as a sequence of continuous warping transformations between different frames. This perspective allows us to train function space diffusion models only on <i>images</i> and utilize them to solve temporally correlated inverse problems. The function space diffusion models need to be equivariant with respect to the underlying spatial transformations. To ensure temporal consistency, we introduce a simple post-hoc test-time guidance towards (self)-equivariant solutions. Our method allows us to deploy state-of-the-art latent diffusion models such as Stable Diffusion XL to solve video inverse problems. We demonstrate the effectiveness of our method for video inpainting and 8&times; video super-resolution, outperforming existing techniques based on noise transformations. 
             </p>
         </div>
       </div>
@@ -328,24 +334,28 @@
                       <source src="https://giannisdaras.github.io/warped_diffusion.github.io/assets/videos/inp/ours/1_input_video.mp4" type="video/mp4">
                       Your browser does not support the video tag.
                   </video>
+                  <div class="video-caption">Input Video</div>
               </div>
               <div>
                 <video controls>
                     <source src="https://giannisdaras.github.io/warped_diffusion.github.io/assets/videos/inp/fixed_noise/2_output_video.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
+                <div class="video-caption">Fixed Noise</div>
             </div>
               <div>
                   <video controls>
                       <source src="https://giannisdaras.github.io/warped_diffusion.github.io/assets/videos/inp/baseline/2_output_video.mp4" type="video/mp4">
                       Your browser does not support the video tag.
                   </video>
+                  <div class="video-caption">How I Warped Your Noise</div>
               </div>
               <div>
                 <video controls>
                     <source src="https://giannisdaras.github.io/warped_diffusion.github.io/assets/videos/inp/ours/2_output_video.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
+                <div class="video-caption">Warped Diffusion (Ours)</div>
             </div>
             </div>
             <!-- Robot -->
@@ -386,24 +396,28 @@
                       <source src="https://giannisdaras.github.io/warped_diffusion.github.io/assets/videos/super_res/ours/1_input_video.mp4" type="video/mp4">
                       Your browser does not support the video tag.
                   </video>
+                  <div class="video-caption">Input Video</div>
               </div>
               <div>
                 <video controls>
                     <source src="https://giannisdaras.github.io/warped_diffusion.github.io/assets/videos/super_res/fixed/1_output_video.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
+                <div class="video-caption">Fixed Noise</div>
             </div>
               <div>
                   <video controls>
                       <source src="https://giannisdaras.github.io/warped_diffusion.github.io/assets/videos/super_res/baseline/1_output_video.mp4" type="video/mp4">
                       Your browser does not support the video tag.
                   </video>
+                  <div class="video-caption">How I Warped Your Noise</div>
               </div>
               <div>
                 <video controls>
                     <source src="https://giannisdaras.github.io/warped_diffusion.github.io/assets/videos/super_res/ours/1_output_video.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
+                <div class="video-caption">Warped Diffusion (Ours)</div>
             </div>
           </div>
         </div>
