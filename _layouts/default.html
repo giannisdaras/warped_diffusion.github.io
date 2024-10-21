@@ -101,6 +101,31 @@
     line-height: 1.6;
     color: #333;
 }
+.play-pause-btn {
+    display: inline-block;
+    margin: 15px auto;
+    padding: 8px 24px;
+    background-color: #808080;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+.play-pause-btn:hover {
+    background-color: #666666;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+.play-pause-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
     </style>
     <!-- <link rel="stylesheet" href="main.css"> -->
@@ -117,30 +142,47 @@
         <div class="button-group">
             <a href="https://arxiv.org" class="button grey-button" target="_blank"> 📝 Paper Link</a>
         </div>
-        <div class="videos">
+        <button class="play-pause-btn" id="playPauseBtn1" onclick="toggleVideos('row1')">▶️ Play Videos</button>
+        <script>
+            function toggleVideos(rowId) {
+                const videos = document.querySelectorAll(`#${rowId} video`);
+                const btn = document.getElementById(`playPauseBtn${rowId.slice(-1)}`);
+                
+                videos.forEach(video => {
+                    if (video.paused) {
+                        video.play();
+                        btn.textContent = '⏸️ Pause Videos';
+                    } else {
+                        video.pause();
+                        btn.textContent = '▶️ Play Videos';
+                    }
+                });
+            }
+        </script>
+        <div class="videos" id="row1">
           <div>
-              <video controls autoplay muted loop playbackRate="1.0">
+              <video controls muted loop playbackRate="1.0">
                   <source src="https://giannisdaras.github.io/warped_diffusion.github.io/assets/videos/3_input_video.mp4" type="video/mp4">
                   Your browser does not support the video tag.
               </video>
               <div class="video-caption">Input Video</div>
           </div>
           <div>
-              <video controls autoplay muted loop playbackRate="1.0">
+              <video controls muted loop playbackRate="1.0">
                   <source src="https://giannisdaras.github.io/warped_diffusion.github.io/assets/videos/3_noises.mp4" type="video/mp4">
                   Your browser does not support the video tag.
               </video>
               <div class="video-caption">Noise Warping</div>
           </div>
           <div>
-              <video controls autoplay muted loop playbackRate="1.0">
+              <video controls muted loop playbackRate="1.0">
                   <source src="https://giannisdaras.github.io/warped_diffusion.github.io/assets/videos/3_output_latent_video.mp4" type="video/mp4">
                   Your browser does not support the video tag.
               </video>
               <div class="video-caption">Video Output Latent Space</div>
           </div>
           <div>
-            <video controls autoplay muted loop playbackRate="1.0">
+            <video controls muted loop playbackRate="1.0">
                 <source src="https://giannisdaras.github.io/warped_diffusion.github.io/assets/videos/3_output_video.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -162,30 +204,31 @@
                 <div class="results">
                   <h2>Super-resolution for real videos</h2>
                   <!-- Woman walking -->
-                  <div class="videos">
+                  <button class="play-pause-btn" id="playPauseBtn2" onclick="toggleVideos('row2')">▶️ Play Videos</button>
+                  <div class="videos" id="row2">
                     <div>
-                        <video controls autoplay muted loop playbackRate="1.0">
+                        <video controls muted loop playbackRate="1.0">
                             <source src="https://giannisdaras.github.io/warped_diffusion.github.io/assets/videos/341_input_video.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                         <div class="video-caption">Input Video</div>
                     </div>
                     <div>
-                        <video controls autoplay muted loop playbackRate="1.0">
+                        <video controls muted loop playbackRate="1.0">
                             <source src="https://giannisdaras.github.io/warped_diffusion.github.io/assets/videos/341_noises.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                         <div class="video-caption">Noise Warping</div>
                     </div>
                     <div>
-                        <video controls autoplay muted loop playbackRate="1.0">
+                        <video controls muted loop playbackRate="1.0">
                             <source src="https://giannisdaras.github.io/warped_diffusion.github.io/assets/videos/341_output_latent_video.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                         <div class="video-caption">Video Output Latent Space</div>
                     </div>
                     <div>
-                      <video controls autoplay muted loop playbackRate="1.0">
+                      <video controls muted loop playbackRate="1.0">
                           <source src="https://giannisdaras.github.io/warped_diffusion.github.io/assets/videos/341_output_video.mp4" type="video/mp4">
                           Your browser does not support the video tag.
                       </video>
@@ -193,30 +236,31 @@
                   </div>
                   </div>
                   <!-- Simsons -->
-                  <div class="videos">
+                  <button class="play-pause-btn" id="playPauseBtn3" onclick="toggleVideos('row3')">▶️ Play Videos</button>
+                  <div class="videos" id="row3">
                     <div>
-                        <video controls autoplay muted loop playbackRate="1.0">
+                        <video controls muted loop playbackRate="1.0">
                             <source src="https://giannisdaras.github.io/warped_diffusion.github.io/assets/videos/301_input_video.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                         <div class="video-caption">Input Video</div>
                     </div>
                     <div>
-                        <video controls autoplay muted loop playbackRate="1.0">
+                        <video controls muted loop playbackRate="1.0">
                             <source src="https://giannisdaras.github.io/warped_diffusion.github.io/assets/videos/301_noises.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                         <div class="video-caption">Noise Warping</div>
                     </div>
                     <div>
-                        <video controls autoplay muted loop playbackRate="1.0">
+                        <video controls muted loop playbackRate="1.0">
                             <source src="https://giannisdaras.github.io/warped_diffusion.github.io/assets/videos/301_output_latent_video.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                         <div class="video-caption">Video Output Latent Space</div>
                     </div>
                     <div>
-                      <video controls autoplay muted loop playbackRate="1.0">
+                      <video controls muted loop playbackRate="1.0">
                           <source src="https://giannisdaras.github.io/warped_diffusion.github.io/assets/videos/301_output_video.mp4" type="video/mp4">
                           Your browser does not support the video tag.
                       </video>
@@ -225,30 +269,31 @@
                   </div>
                 </div>
                   <!-- 216 videos -->
-                  <div class="videos">
+                  <button class="play-pause-btn" id="playPauseBtn4" onclick="toggleVideos('row4')">▶️ Play Videos</button>
+                  <div class="videos" id="row4">
                     <div>
-                        <video controls autoplay muted loop playbackRate="1.0">
+                        <video controls muted loop playbackRate="1.0">
                             <source src="https://giannisdaras.github.io/warped_diffusion.github.io/assets/videos/216_input_video.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                         <div class="video-caption">Input Video</div>
                     </div>
                     <div>
-                        <video controls autoplay muted loop playbackRate="1.0">
+                        <video controls muted loop playbackRate="1.0">
                             <source src="https://giannisdaras.github.io/warped_diffusion.github.io/assets/videos/216_noises.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                         <div class="video-caption">Noise Warping</div>
                     </div>
                     <div>
-                        <video controls autoplay muted loop playbackRate="1.0">
+                        <video controls muted loop playbackRate="1.0">
                             <source src="https://giannisdaras.github.io/warped_diffusion.github.io/assets/videos/216_output_latent_video.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                         <div class="video-caption">Video Output Latent Space</div>
                     </div>
                     <div>
-                      <video controls autoplay muted loop playbackRate="1.0">
+                      <video controls muted loop playbackRate="1.0">
                           <source src="https://giannisdaras.github.io/warped_diffusion.github.io/assets/videos/216_output_video.mp4" type="video/mp4">
                           Your browser does not support the video tag.
                       </video>
@@ -256,30 +301,31 @@
                   </div>
                   </div>
                   <!-- make-up -->
-                  <div class="videos">
+                  <button class="play-pause-btn" id="playPauseBtn5" onclick="toggleVideos('row5')">▶️ Play Videos</button>
+                  <div class="videos" id="row5">
                     <div>
-                        <video controls autoplay muted loop playbackRate="1.0">
+                        <video controls muted loop playbackRate="1.0">
                             <source src="https://giannisdaras.github.io/warped_diffusion.github.io/assets/videos/310_input_video.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                         <div class="video-caption">Input Video</div>
                     </div>
                     <div>
-                        <video controls autoplay muted loop playbackRate="1.0">
+                        <video controls muted loop playbackRate="1.0">
                             <source src="https://giannisdaras.github.io/warped_diffusion.github.io/assets/videos/310_noises.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                         <div class="video-caption">Noise Warping</div>
                     </div>
                     <div>
-                        <video controls autoplay muted loop playbackRate="1.0">
+                        <video controls muted loop playbackRate="1.0">
                             <source src="https://giannisdaras.github.io/warped_diffusion.github.io/assets/videos/310_output_latent_video.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                         <div class="video-caption">Video Output Latent Space</div>
                     </div>
                     <div>
-                      <video controls autoplay muted loop playbackRate="1.0">
+                      <video controls muted loop playbackRate="1.0">
                           <source src="https://giannisdaras.github.io/warped_diffusion.github.io/assets/videos/310_output_video.mp4" type="video/mp4">
                           Your browser does not support the video tag.
                       </video>
@@ -287,30 +333,31 @@
                   </div>
                   </div>
                   <!-- Animation -->
-                  <div class="videos">
+                  <button class="play-pause-btn" id="playPauseBtn6" onclick="toggleVideos('row6')">▶️ Play Videos</button>
+                  <div class="videos" id="row6">
                     <div>
-                        <video controls autoplay muted loop playbackRate="1.0">
+                        <video controls muted loop playbackRate="1.0">
                             <source src="https://giannisdaras.github.io/warped_diffusion.github.io/assets/videos/522_input_video.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                         <div class="video-caption">Input Video</div>
                     </div>
                     <div>
-                        <video controls autoplay muted loop playbackRate="1.0">
+                        <video controls muted loop playbackRate="1.0">
                             <source src="https://giannisdaras.github.io/warped_diffusion.github.io/assets/videos/522_noises.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                         <div class="video-caption">Noise Warping</div>
                     </div>
                     <div>
-                        <video controls autoplay muted loop playbackRate="1.0">
+                        <video controls muted loop playbackRate="1.0">
                             <source src="https://giannisdaras.github.io/warped_diffusion.github.io/assets/videos/522_output_latent_video.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                         <div class="video-caption">Video Output Latent Space</div>
                     </div>
                     <div>
-                      <video controls autoplay muted loop playbackRate="1.0">
+                      <video controls muted loop playbackRate="1.0">
                           <source src="https://giannisdaras.github.io/warped_diffusion.github.io/assets/videos/522_output_video.mp4" type="video/mp4">
                           Your browser does not support the video tag.
                       </video>
@@ -328,30 +375,31 @@
             <h2>Comparisons </h2>
             </div>
             <!-- Cat -->
-            <div class="videos">
+            <button class="play-pause-btn" id="playPauseBtn7" onclick="toggleVideos('row7')">▶️ Play Videos</button>
+            <div class="videos" id="row7">
               <div>
-                  <video controls autoplay muted loop playbackRate="1.0">
+                  <video controls muted loop playbackRate="1.0">
                       <source src="https://giannisdaras.github.io/warped_diffusion.github.io/assets/videos/inp/ours/1_input_video.mp4" type="video/mp4">
                       Your browser does not support the video tag.
                   </video>
                   <div class="video-caption">Input Video</div>
               </div>
               <div>
-                <video controls autoplay muted loop playbackRate="1.0">
+                <video controls muted loop playbackRate="1.0">
                     <source src="https://giannisdaras.github.io/warped_diffusion.github.io/assets/videos/inp/fixed_noise/2_output_video.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
                 <div class="video-caption">Fixed Noise</div>
             </div>
               <div>
-                  <video controls autoplay muted loop playbackRate="1.0">
+                  <video controls muted loop playbackRate="1.0">
                       <source src="https://giannisdaras.github.io/warped_diffusion.github.io/assets/videos/inp/baseline/2_output_video.mp4" type="video/mp4">
                       Your browser does not support the video tag.
                   </video>
                   <div class="video-caption">How I Warped Your Noise</div>
               </div>
               <div>
-                <video controls autoplay muted loop playbackRate="1.0">
+                <video controls muted loop playbackRate="1.0">
                     <source src="https://giannisdaras.github.io/warped_diffusion.github.io/assets/videos/inp/ours/2_output_video.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
@@ -359,30 +407,31 @@
             </div>
             </div>
             <!-- Robot -->
-            <div class="videos">
+            <button class="play-pause-btn" id="playPauseBtn8" onclick="toggleVideos('row8')">▶️ Play Videos</button>
+            <div class="videos" id="row8">
               <div>
-                  <video controls autoplay muted loop playbackRate="1.0">
+                  <video controls muted loop playbackRate="1.0">
                       <source src="https://giannisdaras.github.io/warped_diffusion.github.io/assets/videos/inp/ours/1_input_video.mp4" type="video/mp4">
                       Your browser does not support the video tag.
                   </video>
                   <div class="video-caption">Input Video</div>
               </div>
               <div>
-                <video controls autoplay muted loop playbackRate="1.0">
+                <video controls muted loop playbackRate="1.0">
                     <source src="https://giannisdaras.github.io/warped_diffusion.github.io/assets/videos/inp/fixed_noise/1_output_video.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
                 <div class="video-caption">Fixed Noise</div>
             </div>
               <div>
-                  <video controls autoplay muted loop playbackRate="1.0">
+                  <video controls muted loop playbackRate="1.0">
                       <source src="https://giannisdaras.github.io/warped_diffusion.github.io/assets/videos/inp/baseline/1_output_video.mp4" type="video/mp4">
                       Your browser does not support the video tag.
                   </video>
                   <div class="video-caption">How I Warped Your Noise</div>
               </div>
               <div>
-                <video controls autoplay muted loop playbackRate="1.0">
+                <video controls muted loop playbackRate="1.0">
                     <source src="https://giannisdaras.github.io/warped_diffusion.github.io/assets/videos/inp/ours/1_output_video.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
@@ -390,30 +439,31 @@
             </div>
             </div>
             <!-- Dog Shifting -->
-            <div class="videos">
+            <button class="play-pause-btn" id="playPauseBtn9" onclick="toggleVideos('row9')">▶️ Play Videos</button>
+            <div class="videos" id="row9">
               <div>
-                  <video controls autoplay muted loop playbackRate="1.0">
+                  <video controls muted loop playbackRate="1.0">
                       <source src="https://giannisdaras.github.io/warped_diffusion.github.io/assets/videos/super_res/ours/1_input_video.mp4" type="video/mp4">
                       Your browser does not support the video tag.
                   </video>
                   <div class="video-caption">Input Video</div>
               </div>
               <div>
-                <video controls autoplay muted loop playbackRate="1.0">
+                <video controls muted loop playbackRate="1.0">
                     <source src="https://giannisdaras.github.io/warped_diffusion.github.io/assets/videos/super_res/fixed/1_output_video.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
                 <div class="video-caption">Fixed Noise</div>
             </div>
               <div>
-                  <video controls autoplay muted loop playbackRate="1.0">
+                  <video controls muted loop playbackRate="1.0">
                       <source src="https://giannisdaras.github.io/warped_diffusion.github.io/assets/videos/super_res/baseline/1_output_video.mp4" type="video/mp4">
                       Your browser does not support the video tag.
                   </video>
                   <div class="video-caption">How I Warped Your Noise</div>
               </div>
               <div>
-                <video controls autoplay muted loop playbackRate="1.0">
+                <video controls muted loop playbackRate="1.0">
                     <source src="https://giannisdaras.github.io/warped_diffusion.github.io/assets/videos/super_res/ours/1_output_video.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
